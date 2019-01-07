@@ -1,7 +1,7 @@
 {
-  "name": "multer-oss-new",
-  "version": "0.0.2",
-  "description": "upload files to oss through multer directly",
+  "name": "ganjiang-datasource",
+  "version": "0.0.1",
+  "description": "ganjiang datasource crud and query sdk",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib && mkdir lib && babel src -d lib",
@@ -13,12 +13,13 @@
   "pre-commit": "test",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taozhi8833998/multer-oss.git"
+    "url": "git+https://github.com/taozhi8833998/ganjiang-datasource.git"
   },
   "keywords": [
-    "multer",
-    "oss",
-    "nodejs"
+    "ganjiang",
+    "datasource",
+    "sql",
+    "sdk"
   ],
   "author": "taozhi8833998 <taozhi8833998@163.com>",
   "files": [
@@ -29,14 +30,15 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/taozhi8833998/multer-oss/issues"
+    "url": "https://github.com/taozhi8833998/ganjiang-datasource/issues"
   },
-  "homepage": "https://github.com/taozhi8833998/multer-oss#readme",
+  "homepage": "https://github.com/taozhi8833998/ganjiang-datasource#readme",
   "engines": {
     "node": ">=8"
   },
   "dependencies": {
-    "ali-oss": "^6.0.2"
+    "axios": "^0.18.0",
+    "debug": "^4.1.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
@@ -44,6 +46,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
@@ -55,6 +58,7 @@
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0",
+    "nock": "^10.0.6",
     "nyc": "^13.1.0",
     "pre-commit": "^1.2.2"
   }

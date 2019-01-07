@@ -1,112 +1,104 @@
-# multer-oss
+# ganjiang-datasource
 
-[![](https://img.shields.io/badge/Powered%20by-ganjiang-brightgreen.svg)](https://github.com/taozhi8833998/multer-oss)
-[![Build Status](https://travis-ci.org/taozhi8833998/multer-oss.svg?branch=master)](https://travis-ci.org/taozhi8833998/multer-oss)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/taozhi8833998/multer-oss/blob/master/LICENSE)
-[![npm version](https://badge.fury.io/js/multer-oss-new.svg)](https://badge.fury.io/js/multer-oss-new)
-[![NPM downloads](http://img.shields.io/npm/dm/multer-oss-new.svg?style=flat-square)](http://www.npmtrends.com/multer-oss-new)
-[![Coverage Status](https://img.shields.io/coveralls/github/taozhi8833998/multer-oss/master.svg)](https://coveralls.io/github/taozhi8833998/multer-oss?branch=master)
-[![Dependencies](https://img.shields.io/david/taozhi8833998/multer-oss.svg)](https://img.shields.io/david/taozhi8833998/multer-oss)
-[![issues](https://img.shields.io/github/issues/taozhi8833998/multer-oss.svg)](https://github.com/taozhi8833998/multer-oss/issues)
+[![](https://img.shields.io/badge/Powered%20by-ganjiang-brightgreen.svg)](https://github.com/taozhi8833998/ganjiang-datasource)
+[![Build Status](https://travis-ci.org/taozhi8833998/ganjiang-datasource.svg?branch=master)](https://travis-ci.org/taozhi8833998/ganjiang-datasource)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/taozhi8833998/ganjiang-datasource/blob/master/LICENSE)
+[![npm version](https://badge.fury.io/js/ganjiang-datasource.svg)](https://badge.fury.io/js/ganjiang-datasource)
+[![NPM downloads](http://img.shields.io/npm/dm/ganjiang-datasource.svg?style=flat-square)](http://www.npmtrends.com/ganjiang-datasource)
+[![Coverage Status](https://img.shields.io/coveralls/github/taozhi8833998/ganjiang-datasource/master.svg)](https://coveralls.io/github/taozhi8833998/ganjiang-datasource?branch=master)
+[![Dependencies](https://img.shields.io/david/taozhi8833998/ganjiang-datasource.svg)](https://img.shields.io/david/taozhi8833998/ganjiang-datasource)
+[![issues](https://img.shields.io/github/issues/taozhi8833998/ganjiang-datasource.svg)](https://github.com/taozhi8833998/ganjiang-datasource/issues)
 
 
-**multer upload files to aliyun oss directly.**
+**ganjiang datasource crud sdk.**
 
 ## :star: Features
 
-- support upload files to [oss](https://www.aliyun.com/product/oss)
-- support es7 features async and await
+- support ganjiang datasource crud
+- support datasource query
 
 ## :tada: Install
 
 ```bash
-npm install multer-oss-new
+npm install ganjiang-datasource --save
 ```
 ## :rocket: Usage
 
-### init oss storage
+### init ganjiang datasource manager
 
 ```javascript
-const storage = new OSSStorage({
-  oss: { // required
-    region: 'oss-region',
-    internal: false,
-    accessKeyId: 'access-key-id',
-    accessKeySecret: 'access-key-secret',
-    bucket: 'bucket'
-  },
-  destination: async (req, file, ossClient) => {
-    return '' // return destination folder path, optional,  '' is default value
-  },
-  filename: async (req, file, ossClient) => {
-    return file.originalname // return file name, optional, file.originalname is default value
-  }
+import GanJiangDataSource from 'ganjiang-datasource
+
+const ganjiang = new GanJiangDataSource({
+  host: 'xx.xx.xx.xx', // datasource host required
+  token: 'access_token' // datasource api access token optional
 })
 ```
 
-if you already have an oss client, you can pass it to opt directly
+### create datasource
 
 ```javascript
-const OSS = require('ali-oss')
-const ossClient = new OSS({
-  region: 'oss-region',
-  internal: false,
-  accessKeyId: 'access-key-id',
-  accessKeySecret: 'access-key-secret',
-  bucket: 'bucket'
+const DATASOURCE_INFO = {
+  name: 'test',
+  host: 'host',
+  port: 3306,
+  database: 'database',
+  user: 'user',
+  password: 'password',
+  dialect: 'mysql', // optional
+  token: '0123456789', // read, update, delete or query datasource need this token
+  whiteList: [
+    'select::null::(.*)', // db white list
+  ],
+  type: 1 // 1 for mysql
+}
+const data = await ganjiang.create(DATASOURCE_INFO) // {id: 'xxxxx'}
+```
+
+### get datasource
+
+```javascript
+const data = await ganjiang.read({
+  name: 'datasource name',
+  token: 'datasource token'
+}) // DATASOURCE_INFO
+```
+
+### update datasource
+
+```javascript
+const num = await ganjiang.update({
+  name: 'datasource name',
+  token: 'datasource token'
+}, updateInfo) // updateInfo would be part of DATASOURCE_INFO
+
+// num indicates the number updated successfully
+```
+
+### delete datasource
+
+```javascript
+const num = await ganjiang.delete({
+  name: 'datasource name',
+  token: 'datasource token'
 })
-const storage = new OSSStorage({
-  client: ossClient, // using oss client that already exists
-  destination: async (req, file, ossClient) => {
-    return '' // return destination folder path, optional,  '' is default value
-  },
-  filename: async (req, file, ossClient) => {
-    return file.originalname // return file name, optional, file.originalname is default value
-  }
+// num indicates the number deleted successfully
+```
+
+### query datasource with sql
+
+```javascript
+const data = await ganjiang.query({
+  name: 'datasource name',
+  token: 'datasource token'
+}, {
+  sql: 'sql statement'
 })
 ```
 
-## :kissing_heart: Full Examples
+## :kissing_heart: WHILTE_LIST_AUTHORITY
 
-Full examples for using multer-oss with express, multer
-
-```javascript
-const bodyParser = require('body-parser')
-const express = require('express')
-const http = require('http')
-const multer = require('multer')
-const OSSStorage = require('multer-oss-new')
-const app = express()
-const server = http.createServer(app)
-const storage = new OSSStorage({
-  oss: { // required
-    region: 'oss-region',
-    internal: false,
-    accessKeyId: 'access-key-id',
-    accessKeySecret: 'access-key-secret',
-    bucket: 'bucket' // you could using all oss option in ali-oss pacakge
-  },
-  destination: async (req, file, ossClient) => {
-    return '' // return destination folder path, optional,  '' is default value
-  },
-  filename: async (req, file, ossClient) => {
-    return file.originalname // return file name, optional, file.originalname is default value
-  }
-})
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use('/upload', multer({ storage })) // for more multer usage, you could refrence multer document
-app.use((error, req, res, next) => {
-  res.status(500).json({isError: true, error})
-})
-app.use((req, res) => {
-  return res.status(404).json({isError: true, error: 'Router NOT FOUNDED'})
-})
-server.listen(8000, err => {
-  if(err) return console.error('app start failed')
-  console.info('app start at 8000')
-})
-```
+you could ready more about white list in [node-sql-parser](https://www.npmjs.com/package/node-sql-parser) module
 
 ## License
 

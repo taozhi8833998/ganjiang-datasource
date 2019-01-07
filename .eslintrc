@@ -1,7 +1,7 @@
 {
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 8
+    "ecmaVersion": 2018
   },
   "env": {
     "es6": true,
@@ -16,11 +16,7 @@
     "array-element-newline": [
       0
     ],
-    "id-blacklist": [
-      "error",
-      "data",
-      "e"
-    ],
+    "id-blacklist": [0],
     "comma-dangle": [
       2,
       "always-multiline"

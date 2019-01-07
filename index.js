@@ -1,1 +1,1 @@
-module.exports = require('./lib/oss').default
+module.exports = require('./lib')
