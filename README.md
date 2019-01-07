@@ -33,11 +33,11 @@ npm test
 
 **if you want print out the debug info, please set `DEBUG='ds'` in process environment by command: `export DEBUG='ds'`**
 
-### init ganjiang datasource manager
+### Init ganjiang datasource manager
 
 ```javascript
 
-import GanJiangDataSource from 'ganjiang-datasource
+import GanJiangDataSource from 'ganjiang-datasource'
 
 const ganjiang = new GanJiangDataSource({
   host: 'xx.xx.xx.xx', // datasource host required
@@ -46,7 +46,7 @@ const ganjiang = new GanJiangDataSource({
 
 ```
 
-### create datasource
+### Create DataSource
 
 ```javascript
 const DATASOURCE_INFO = {
@@ -66,7 +66,7 @@ const DATASOURCE_INFO = {
 const data = await ganjiang.create(DATASOURCE_INFO) // {id: 'xxxxx'}
 ```
 
-### get datasource
+### Get DataSource
 
 ```javascript
 const data = await ganjiang.read({
@@ -75,7 +75,7 @@ const data = await ganjiang.read({
 }) // DATASOURCE_INFO
 ```
 
-### update datasource
+### Update DataSource
 
 ```javascript
 const num = await ganjiang.update({
@@ -86,7 +86,7 @@ const num = await ganjiang.update({
 // num indicates the number updated successfully
 ```
 
-### delete datasource
+### Delete DataSource
 
 ```javascript
 const num = await ganjiang.delete({
@@ -96,7 +96,7 @@ const num = await ganjiang.delete({
 // num indicates the number deleted successfully
 ```
 
-### query datasource with sql
+### Query DataSource with sql
 
 ```javascript
 const data = await ganjiang.query({
