@@ -31,17 +31,19 @@ npm test
 
 ## :rocket: Usage
 
-**if you output debug info, please set `DEBUG='ds'` in process env by command: `export DEBUG='ds'`**
+**if you want print out the debug info, please set `DEBUG='ds'` in process environment by command: `export DEBUG='ds'`**
 
 ### init ganjiang datasource manager
 
 ```javascript
+
 import GanJiangDataSource from 'ganjiang-datasource
 
 const ganjiang = new GanJiangDataSource({
   host: 'xx.xx.xx.xx', // datasource host required
   token: 'access_token' // datasource api access token optional
 })
+
 ```
 
 ### create datasource
