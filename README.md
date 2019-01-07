@@ -22,7 +22,16 @@
 ```bash
 npm install ganjiang-datasource --save
 ```
+
+## :ghost: Test
+
+```bash
+npm test
+```
+
 ## :rocket: Usage
+
+**if you output debug info, please set `DEBUG='ds'` in process env by command: `export DEBUG='ds'`**
 
 ### init ganjiang datasource manager
 
