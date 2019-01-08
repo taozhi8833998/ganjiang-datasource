@@ -1,6 +1,6 @@
 {
   "name": "ganjiang-datasource",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ganjiang datasource crud and query sdk",
   "main": "index.js",
   "scripts": {
