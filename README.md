@@ -56,6 +56,9 @@ const DATASOURCE_INFO = {
   database: 'database',
   user: 'user',
   password: 'password',
+  db_cfg: { // 可选
+    limit: 100 // 限制select最多返回100, 默认是1000
+  },
   dialect: 'mysql', // optional
   token: '0123456789', // read, update, delete or query datasource need this token
   whiteList: [
