@@ -8,6 +8,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/ganjiang-datasource.svg?style=flat-square)](http://www.npmtrends.com/ganjiang-datasource)
 [![Coverage Status](https://img.shields.io/coveralls/github/taozhi8833998/ganjiang-datasource/master.svg)](https://coveralls.io/github/taozhi8833998/ganjiang-datasource?branch=master)
 [![Dependencies](https://img.shields.io/david/taozhi8833998/ganjiang-datasource.svg)](https://img.shields.io/david/taozhi8833998/ganjiang-datasource)
+[![Known Vulnerabilities](https://snyk.io/test/github/taozhi8833998/ganjiang-datasource/badge.svg?targetFile=package.json)](https://snyk.io/test/github/taozhi8833998/ganjiang-datasource?targetFile=package.json)
 [![issues](https://img.shields.io/github/issues/taozhi8833998/ganjiang-datasource.svg)](https://github.com/taozhi8833998/ganjiang-datasource/issues)
 
 **ganjiang datasource crud sdk.**
