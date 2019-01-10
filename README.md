@@ -1,5 +1,6 @@
 # ganjiang-datasource
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e19d82a2ffec4fc4b613b8cf360bf3a1)](https://app.codacy.com/app/taozhi8833998/ganjiang-datasource?utm_source=github.com&utm_medium=referral&utm_content=taozhi8833998/ganjiang-datasource&utm_campaign=Badge_Grade_Dashboard)
 [![](https://img.shields.io/badge/Powered%20by-ganjiang-brightgreen.svg)](https://github.com/taozhi8833998/ganjiang-datasource)
 [![Build Status](https://travis-ci.org/taozhi8833998/ganjiang-datasource.svg?branch=master)](https://travis-ci.org/taozhi8833998/ganjiang-datasource)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/taozhi8833998/ganjiang-datasource/blob/master/LICENSE)
