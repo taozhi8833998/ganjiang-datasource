@@ -10,13 +10,12 @@
 [![Dependencies](https://img.shields.io/david/taozhi8833998/ganjiang-datasource.svg)](https://img.shields.io/david/taozhi8833998/ganjiang-datasource)
 [![issues](https://img.shields.io/github/issues/taozhi8833998/ganjiang-datasource.svg)](https://github.com/taozhi8833998/ganjiang-datasource/issues)
 
-
 **ganjiang datasource crud sdk.**
 
 ## :star: Features
 
-- support ganjiang datasource crud
-- support datasource query
+  - support ganjiang datasource crud
+  - support datasource query
 
 ## :tada: Install
 
@@ -118,4 +117,3 @@ you could ready more about white list in [node-sql-parser](https://www.npmjs.com
 ## License
 
 [MIT](LICENSE)
-
