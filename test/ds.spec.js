@@ -68,6 +68,17 @@ describe('ganjiang datasource crud', () => {
           }
         })
       nock(url, headers)
+        .get(`/v1/admin/ds/${DATASOURCE_INFO.name}`)
+        .query({attributes: 'database,token'})
+        .reply(200, {
+          isError: false,
+          data: {
+            database: DATASOURCE_INFO.database,
+            token: DATASOURCE_INFO.token,
+            id: null,
+          }
+        })
+      nock(url, headers)
         .put(`/v1/admin/ds/${DATASOURCE_INFO.name}`, { whiteList: ['select::null::a'] })
         .reply(200, {
           isError: false,
@@ -113,6 +124,20 @@ describe('ganjiang datasource crud', () => {
         ],
         gmt_modified: "2019-01-07T14:16:45.105Z",
         gmt_created: "2019-01-07T14:16:45.105Z",
+        id: null,
+      })
+    }))
+    it('read with attributes', done(async () => {
+      const query  = {
+        attributes: 'database,token'
+      }
+      const dataSource = await ganjiang.read({
+        name: DATASOURCE_INFO.name,
+        token: DATASOURCE_INFO.token
+      }, query)
+      expect(dataSource).to.be.eql({
+        database: DATASOURCE_INFO.database,
+        token: DATASOURCE_INFO.token,
         id: null,
       })
     }))

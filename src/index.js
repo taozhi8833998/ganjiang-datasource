@@ -21,13 +21,14 @@ class DataSource {
     })
   }
 
-  read({ name, token }) {
+  read({ name, token }, query) {
     return this[SYMBOL_PROPETY.requestDataSource]({
       method  : 'GET',
       url     : `/v1/admin/ds/${name}`,
       headers : {
         ds_token : token,
       },
+      query,
     })
   }
 

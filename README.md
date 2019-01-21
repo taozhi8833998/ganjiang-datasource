@@ -73,10 +73,13 @@ const data = await ganjiang.create(DATASOURCE_INFO) // {id: 'xxxxx'}
 ### Get DataSource
 
 ```javascript
+const opt = { // optional
+  attributes: 'database,token' // get datasource and token property only
+}
 const data = await ganjiang.read({
   name: 'datasource name',
   token: 'datasource token'
-}) // DATASOURCE_INFO
+}, opt) // DATASOURCE_INFO
 ```
 
 ### Update DataSource
