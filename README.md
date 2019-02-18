@@ -114,6 +114,18 @@ const data = await ganjiang.query({
 })
 ```
 
+- for dynamic values, using `values` to prevent from sql inject
+
+```javascript
+const data = await ganjiang.query({
+  name: 'datasource name',
+  token: 'datasource token'
+}, {
+  sql: 'select * from app where id = ?',
+  values: [1] // select * from app where id = 1
+})
+```
+
 ## :kissing_heart: WHILTE_LIST_AUTHORITY
 
 you could ready more about white list in [node-sql-parser](https://www.npmjs.com/package/node-sql-parser) module

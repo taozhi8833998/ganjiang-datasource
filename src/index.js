@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Debug from 'debug'
+import mysql from 'mysql'
 
 const debug = Debug('ds')
 const SYMBOL_PROPETY = {
@@ -54,6 +55,10 @@ class DataSource {
   }
 
   query({ name, token }, body) {
+    if (body.values) {
+      body.sql = mysql.format(body.sql, body.values)
+      Reflect.deleteProperty(body, 'values')
+    }
     return this[SYMBOL_PROPETY.requestDataSource]({
       method  : 'POST',
       url     : `/v1/data/${name}`,

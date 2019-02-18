@@ -106,6 +106,18 @@ describe('ganjiang datasource crud', () => {
             }
           ]
         })
+      nock(url, headers)
+        .post(`/v1/data/${DATASOURCE_INFO.name}`, {
+          sql: 'select * from app where id = 1'
+        })
+        .reply(200, {
+          isError: false,
+          data: [
+            {
+              app: 'test'
+            }
+          ]
+        })
     })
     it('create', done(async () => {
       const dataSource = await ganjiang.create(DATASOURCE_INFO)
@@ -172,6 +184,20 @@ describe('ganjiang datasource crud', () => {
         },
         {
           app: 'test2'
+        }
+      ])
+    }))
+    it('query with values', done(async () => {
+      const data = await ganjiang.query({
+        name: DATASOURCE_INFO.name,
+        token: DATASOURCE_INFO.token
+      }, {
+          sql: 'select * from app where id = ?',
+          values: [1]
+        })
+      expect(data).to.be.eql([
+        {
+          app: 'test'
         }
       ])
     }))

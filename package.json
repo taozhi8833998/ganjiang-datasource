@@ -1,6 +1,6 @@
 {
   "name": "ganjiang-datasource",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ganjiang datasource crud and query sdk",
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "mysql": "^2.16.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
