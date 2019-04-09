@@ -53,6 +53,8 @@ const ganjiang = new GanJiangDataSource({
 
 ### Create DataSource
 
+#### Create MySQL DataSource
+
 ```javascript
 const DATASOURCE_INFO = {
   name: 'test',
@@ -73,6 +75,8 @@ const DATASOURCE_INFO = {
 }
 const data = await ganjiang.create(DATASOURCE_INFO) // {id: 'xxxxx'}
 ```
+
+#### Create Api DataSource
 
 ```javascript
 const API_INFO = {
