@@ -25,6 +25,10 @@ describe('ganjiang datasource crud', () => {
     ],
     type: 1
   }
+  const opt = {
+    name: DATASOURCE_INFO.name,
+    token: DATASOURCE_INFO.token,
+  }
   describe('host is required', () => {
     it('show throw error', () => {
       try {
@@ -34,7 +38,7 @@ describe('ganjiang datasource crud', () => {
       }
     })
   })
-  describe('create, read, update, delete and query datasource successfully', () => {
+  describe('create, read, update, delete and query mysql successfully', () => {
     before(() => {
       const url = `http://${host}`
       const headers = {
@@ -124,10 +128,7 @@ describe('ganjiang datasource crud', () => {
       expect(dataSource).to.be.eql({id})
     }))
     it('read', done(async () => {
-      const dataSource = await ganjiang.read({
-        name: DATASOURCE_INFO.name,
-        token: DATASOURCE_INFO.token
-      })
+      const dataSource = await ganjiang.read(opt)
       expect(dataSource).to.be.eql({
         ...DATASOURCE_INFO,
         whiteList: [
@@ -143,10 +144,7 @@ describe('ganjiang datasource crud', () => {
       const query  = {
         attributes: 'database,token'
       }
-      const dataSource = await ganjiang.read({
-        name: DATASOURCE_INFO.name,
-        token: DATASOURCE_INFO.token
-      }, query)
+      const dataSource = await ganjiang.read(opt, query)
       expect(dataSource).to.be.eql({
         database: DATASOURCE_INFO.database,
         token: DATASOURCE_INFO.token,
@@ -154,28 +152,17 @@ describe('ganjiang datasource crud', () => {
       })
     }))
     it('update', done(async () => {
-      const num = await ganjiang.update({
-        name: DATASOURCE_INFO.name,
-        token: DATASOURCE_INFO.token
-      }, {
+      const num = await ganjiang.update(opt, {
         whiteList: ['select::null::a']
       })
       expect(num).to.be.eql(1)
     }))
     it('delete', done(async () => {
-      const num = await ganjiang.delete({
-        name: DATASOURCE_INFO.name,
-        token: DATASOURCE_INFO.token
-      }, {
-          database: 'new-database'
-        })
+      const num = await ganjiang.delete(opt)
       expect(num).to.be.eql(1)
     }))
     it('query', done(async () => {
-      const data  = await ganjiang.query({
-        name: DATASOURCE_INFO.name,
-        token: DATASOURCE_INFO.token
-      }, {
+      const data  = await ganjiang.query(opt, {
         sql: 'select * from app limit 0, 2'
       })
       expect(data).to.be.eql([
@@ -188,10 +175,7 @@ describe('ganjiang datasource crud', () => {
       ])
     }))
     it('query with values', done(async () => {
-      const data = await ganjiang.query({
-        name: DATASOURCE_INFO.name,
-        token: DATASOURCE_INFO.token
-      }, {
+      const data = await ganjiang.query(opt, {
           sql: 'select * from app where id = ?',
           values: [1]
         })
@@ -202,7 +186,7 @@ describe('ganjiang datasource crud', () => {
       ])
     }))
   })
-  describe('crud and query datasource error', () => {
+  describe('crud and query mysql error', () => {
     const error = {
       message: 'test error',
       code: 'TEST_ERROR',
@@ -244,10 +228,7 @@ describe('ganjiang datasource crud', () => {
     }))
     it('query', done(async () => {
       try {
-        await ganjiang.query({
-          name: DATASOURCE_INFO.name,
-          token: DATASOURCE_INFO.token
-        }, {
+        await ganjiang.query(opt, {
             sql: 'select * from app limit 0, 2'
           })
       } catch (err) {

@@ -1,15 +1,19 @@
 # ganjiang-datasource
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e19d82a2ffec4fc4b613b8cf360bf3a1)](https://app.codacy.com/app/taozhi8833998/ganjiang-datasource?utm_source=github.com&utm_medium=referral&utm_content=taozhi8833998/ganjiang-datasource&utm_campaign=Badge_Grade_Dashboard)
-[![](https://img.shields.io/badge/Powered%20by-ganjiang-brightgreen.svg)](https://github.com/taozhi8833998/ganjiang-datasource)
 [![Build Status](https://travis-ci.org/taozhi8833998/ganjiang-datasource.svg?branch=master)](https://travis-ci.org/taozhi8833998/ganjiang-datasource)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/taozhi8833998/ganjiang-datasource/blob/master/LICENSE)
-[![npm version](https://badge.fury.io/js/ganjiang-datasource.svg)](https://badge.fury.io/js/ganjiang-datasource)
-[![NPM downloads](http://img.shields.io/npm/dm/ganjiang-datasource.svg?style=flat-square)](http://www.npmtrends.com/ganjiang-datasource)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e19d82a2ffec4fc4b613b8cf360bf3a1)](https://app.codacy.com/app/taozhi8833998/ganjiang-datasource?utm_source=github.com&utm_medium=referral&utm_content=taozhi8833998/ganjiang-datasource&utm_campaign=Badge_Grade_Dashboard)
 [![Coverage Status](https://img.shields.io/coveralls/github/taozhi8833998/ganjiang-datasource/master.svg)](https://coveralls.io/github/taozhi8833998/ganjiang-datasource?branch=master)
 [![Dependencies](https://img.shields.io/david/taozhi8833998/ganjiang-datasource.svg)](https://img.shields.io/david/taozhi8833998/ganjiang-datasource)
 [![Known Vulnerabilities](https://snyk.io/test/github/taozhi8833998/ganjiang-datasource/badge.svg?targetFile=package.json)](https://snyk.io/test/github/taozhi8833998/ganjiang-datasource?targetFile=package.json)
+[![](https://img.shields.io/badge/Powered%20by-ganjiang-brightgreen.svg)](https://github.com/taozhi8833998/ganjiang-datasource)
+
+[![npm version](https://badge.fury.io/js/ganjiang-datasource.svg)](https://badge.fury.io/js/ganjiang-datasource)
+[![NPM downloads](http://img.shields.io/npm/dm/ganjiang-datasource.svg?style=flat-square)](http://www.npmtrends.com/ganjiang-datasource)
+
 [![issues](https://img.shields.io/github/issues/taozhi8833998/ganjiang-datasource.svg)](https://github.com/taozhi8833998/ganjiang-datasource/issues)
+
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/taozhi8833998/ganjiang-datasource/blob/master/LICENSE)
+
 
 **ganjiang datasource crud sdk.**
 
