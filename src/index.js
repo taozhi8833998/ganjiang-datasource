@@ -54,7 +54,7 @@ class DataSource {
     })
   }
 
-  query({ name, token }, body) {
+  query({ name, token }, body = {}) {
     if (body.values) {
       body.sql = mysql.format(body.sql, body.values)
       Reflect.deleteProperty(body, 'values')

@@ -65,9 +65,23 @@ const DATASOURCE_INFO = {
   whiteList: [
     'select::null::(.*)', // db white list
   ],
-  type: 1 // 1 for mysql
+  type: 1 // 0 for api, 1 for mysql 2 for psql
 }
 const data = await ganjiang.create(DATASOURCE_INFO) // {id: 'xxxxx'}
+```
+
+```javascript
+const API_INFO = {
+  name: 'api_test',
+  url: 'http://xxx.xxx.xx.xx/url/path',
+  method: 'get',
+  token: '0123456789',
+  headers: {}, // default headers
+  query: {}, // default query
+  body: {}, // default body
+  type: 0
+}
+const data = await ganjiang.create(API_INFO) // {id: 'xxxxx'}
 ```
 
 ### Get DataSource
@@ -123,6 +137,20 @@ const data = await ganjiang.query({
 }, {
   sql: 'select * from app where id = ?',
   values: [1] // select * from app where id = 1
+})
+```
+
+### Request API
+
+```javascript
+const data = await ganjiang.query({
+  name: 'api name',
+  token: 'api token'
+}, {
+  query: {}, // merge with default query
+  body: {},// merge with default body
+  headers: {},// merge with default headers
+  opt: {}// override default options
 })
 ```
 
