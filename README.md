@@ -71,7 +71,7 @@ const DATASOURCE_INFO = {
   whiteList: [
     'select::null::(.*)', // db white list
   ],
-  type: 1 // 0 for api, 1 for mysql 2 for psql
+  type: 1 // 0 for api, 1 for mysql 2 for psql 3 for api gateway
 }
 const data = await ganjiang.create(DATASOURCE_INFO) // {id: 'xxxxx'}
 ```
@@ -88,6 +88,24 @@ const API_INFO = {
   query: {}, // default query
   body: {}, // default body
   type: 0
+}
+const data = await ganjiang.create(API_INFO) // {id: 'xxxxx'}
+```
+
+#### Create Api GateWay DataSource
+
+```javascript
+const API_INFO = {
+  name: 'api_test',
+  url: 'http://xxx.xxx.xx.xx/url/path',
+  method: 'get',
+  token: '0123456789',
+  headers: {}, // default headers
+  query: {}, // default query
+  body: {}, // default body
+  type: 3,
+  appKey: 'your app key',
+  appSecret: 'your app secret'
 }
 const data = await ganjiang.create(API_INFO) // {id: 'xxxxx'}
 ```
@@ -148,7 +166,7 @@ const data = await ganjiang.query({
 })
 ```
 
-### Request API
+### Request API (GateWay)
 
 ```javascript
 const data = await ganjiang.query({
